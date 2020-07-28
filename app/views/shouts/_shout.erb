@@ -3,5 +3,5 @@
   <%= link_to shout do %>
     <%= time_ago_in_words(shout.created_at) %>
   <% end %>
-  <%= shout.content.body %>
+  <%= render shout.content  %>
 </div>

@@ -1,8 +1,17 @@
 <h1>Dashboard</h1>
 
 <%= form_for @shout do |form| %>
+  <%= form.hidden_field :content_type, value: :text_shout %>
   <%= form.fields_for :content do |content_form| %>
     <%= content_form.text_field :body, placeholder: 'type text here', required: true %>
+  <% end %>
+  <%= form.submit 'Shout!' %>
+<% end %>
+
+<%= form_for @shout do |form| %>
+  <%= form.hidden_field :content_type, value: :photo_shout %>
+  <%= form.fields_for :content do |content_form| %>
+    <%= content_form.file_field :image, required: true %>
   <% end %>
   <%= form.submit 'Shout!' %>
 <% end %>
