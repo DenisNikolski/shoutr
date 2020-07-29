@@ -1,7 +1,8 @@
 <div>
+  <%= avatar shout.user %>
   <%= link_to shout.username, shout.user %>
   <%= link_to shout do %>
     <%= time_ago_in_words(shout.created_at) %>
   <% end %>
-  <%= render shout.content  %>
+  <%= render shout.content %>
 </div>
