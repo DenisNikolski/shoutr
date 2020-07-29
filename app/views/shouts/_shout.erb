@@ -5,4 +5,5 @@
     <%= time_ago_in_words(shout.created_at) %>
   <% end %>
   <%= render shout.content %>
+  <%= like_button shout %>
 </div>
