@@ -47,6 +47,11 @@ class User < ApplicationRecord
     followed_user_ids.include?(user.id)
   end
 
+  def timeline_shouts
+    users_ids = followed_user_ids + [id]
+    Shout.where(user_id: users_ids)
+  end
+
   def self.find_user_by_email_or_name(email_or_username)
     User.where(email: email_or_username)
         .or(User.where(username: email_or_username)).first
