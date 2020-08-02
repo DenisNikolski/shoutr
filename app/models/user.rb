@@ -11,7 +11,7 @@ class User < ApplicationRecord
            foreign_key: :follower_id,
            class_name: 'FollowingRelationship',
            dependent: :destroy
-  has_many :followed_user, through: :followed_user_relationships
+  has_many :followed_users, through: :followed_user_relationships
 
   has_many :follower_relationships,
            foreign_key: :followed_user_id,
@@ -45,11 +45,6 @@ class User < ApplicationRecord
 
   def following?(user)
     followed_user_ids.include?(user.id)
-  end
-
-  def timeline_shouts
-    users_ids = followed_user_ids + [id]
-    Shout.where(user_id: users_ids)
   end
 
   def self.find_user_by_email_or_name(email_or_username)

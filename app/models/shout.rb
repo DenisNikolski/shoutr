@@ -5,7 +5,5 @@ class Shout < ApplicationRecord
   validates :user, presence: true
   validates_associated :content
 
-  default_scope { order(created_at: :desc) }
-
   delegate :username, to: :user
 end
